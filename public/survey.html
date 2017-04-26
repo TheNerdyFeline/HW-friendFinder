@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<title>Friend Finder</title>
+	<!-- jquery link -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<!-- veiwport info for media query -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- boostrap jquery link -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- bootstrap link -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="" rel="stylesheet" type="text/css">
+	
+    </head>
+    <body>
+	<div class="container">
+
+	    <div class="jumbotron">
+		<h1 class="text-center"><span class="glyphicon glyphicon-link"></span> Friend Finder</h1>
+		<hr>
+		<h2 class="text-center">Find a new friend!</h2>
+		<br>
+
+		<div class="text-center">
+		    <a href="/survey"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-filter"></span> Take Survey</button></a>
+		    <a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+		</div>
+
+	    </div> <!-- close jumbotron -->
+
+	    <!-- survey form -->
+	    <form class="form-horizontal">
+		<div class="form-group">
+		    <label for="name" class="col-sm-2 control-label">Name (required)</label>
+		    <div class="col-sm-10">
+			<input type="name" class="form-control" id="name">
+		    </div>
+		    <label for="url-input" class="col-2 col-form-label">Link to photo image. (required) </label>
+		    <div class="col-10">
+			<input class="form-control" type="url" id="url">
+		    </div>
+		</div> <!-- close text input -->
+		<h2>Question 1</h2>
+		<h3>You love to be spontanious!</h3>
+		<select data-placeholder class="chosen-select" id="q1">
+		    <option></option>
+		    <option value="1">1 (Strongly Disagree)</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h2>Question 2</h2>
+		<h3>You rely on your experience more then your imagination</h3>
+		<select data-placeholder class="chosen-select" id="q2">
+		    <option></option>
+		    <option value="1">1 (Strongly Disagree)</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h2>Question 3</h2>
+		<h3>You stay calm under pressure.</h3>
+		<select data-placeholder class="chosen-select" id="q3">
+		    <option></option>
+		    <option value="1">1 (Strongly Disagree)</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5 (Strongly Agree)</option>
+		</select>
+
+
+		<h2>Question 4</h2>
+		<h3>You go where your curiosity takes you.</h3>
+		<select data-placeholder class="chosen-select" id="q4">
+		    <option></option>
+		    <option value="1">1 (Strongly Disagree)</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5 (Strongly Agree)</option>
+		</select>
+
+
+		<h2>Question 5</h2>
+		<h3>You are a social butterfly, love being out with lots of people.</h3>
+		<select data-placeholder class="chosen-select" id="q5">
+		    <option></option>
+		    <option value="1">1 (Strongly Disagree)</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5 (Strongly Agree)</option>
+		</select>
+
+
+		<h2>Question 6</h2>
+		<h3>You love to stay in and read a book or watch TV.</h3>
+		<select data-placeholder class="chosen-select" id="q6">
+		    <option></option>
+		    <option value="1">1 (Strongly Disagree)</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h2>Question 7</h2>
+		<h3>You relate to other's feelings easily.</h3>
+		<select data-placeholder class="chosen-select" id="q7">
+		    <option></option>
+		    <option value="1">1 (Strongly Disagree)</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h2>Question 8</h2>
+		<h3>You think all views should be respected.</h3>
+		<select data-placeholder class="chosen-select" id="q8">
+		    <option></option>
+		    <option value="1">1 (Strongly Disagree)</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h2>Question 9</h2>
+		<h3>You love animals!</h3>
+		<select data-placeholder class="chosen-select" id="q9">
+		    <option></option>
+		    <option value="1">1 (Strongly Disagree)</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h2>Question 10</h2>
+		<h3>You love online dating.</h3>
+		<select data-placeholder class="chosen-select" id="q10">
+		    <option></option>
+		    <option value="1">1 (Strongly Disagree)</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5 (Strongly Agree)</option>
+		</select>
+		<div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default submit">Submit</button>
+		    </div>
+		</div> <!-- close form-horizontal -->
+	    </form>
+	    
+	</div> <!-- close container -->
+    </body>
+</html>
