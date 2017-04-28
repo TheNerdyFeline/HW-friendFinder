@@ -1,5 +1,3 @@
-console.log('js linked');
-
 // declare var
 var newFriend;
 
