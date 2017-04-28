@@ -12,10 +12,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use('/static', express.static('public'));
 
 // route files, to send html to send data
-require("./routing/htmlRoutes.js")(app);
 require("./routing/apiRoutes")(app);
+require("./routing/htmlRoutes.js")(app);
 
 // server to run main site
 app.listen(PORT, function() {
