@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-app.use('/static', express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // route files, to send html to send data
 require("./routing/apiRoutes")(app);
