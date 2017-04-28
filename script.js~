@@ -1,0 +1,6 @@
+// event listener for submit button
+$(".submit")
+
+// function to grab info from survey and clear form
+
+//function to compare to friends list
