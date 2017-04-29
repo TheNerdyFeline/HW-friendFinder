@@ -1,4 +1,4 @@
-var friendsArr, newFriend, currFriend, currFriendScores, compFriend, compFriendScores, hi ,lo, scoreDiff, bff;
+var friendsArr, newFriend, currFriend, currFriendScores, compFriend, compFriendScores, hi ,lo, bff;
 var scoreDiffArr = [];
 var currentURL = window.location.origin;
 var total = 39;
@@ -10,8 +10,8 @@ var best = 40;
 // event listener for submit button
 $(".submit").on("click", function(event) {
     event.preventDefault();
-    getSurvey();
     bestMatch();
+    getSurvey();
 });
 
 function getSurvey() {
@@ -45,38 +45,34 @@ function bestMatch() {
     $.ajax({ url: currentURL + "/api/friends", method: "GET" })
 	.done(function(data) {
 	    friendsArr = data;
+	    console.log(data);
+	    // currFriend.scores is current arr holding values of this friend that we're comparing
+	    
+	    
+	    var diffArr = data.map(function(el){
+		var newObj = {};
+		newObj.name = el.name;
+		var totalDiff = 0;
+		
+		el.scores.forEach(function(score, idx){
+		    let diff = Math.abs(parseInt(currFriend.scores[idx]) - parseInt(score));
+		    totalDiff += diff;
+		});
+		newObj.totalDiff = totalDiff;
+		// return an array of objects that holds the friend's name and the difference between each score
+		return newObj;
+	    });
+	    
+	    
+	    // sort through new arr to find lowest number then load that info into modal
+	    diffArr.sort();
+	    console.log(diffArr);
+	    bff = diffArr[0];
+	    
+	    $("#bestName").html(bff.name);
+	    $("#bestPic").attr("src", bff.photo);
+	    // show modal
+	    $(".modal").modal({backdrop: true});
 	});
-    compFriend = friendsArr.shift();
-    compFriendScores = compFriend.scores;
-    console.log(compFriendScores);
-    console.log(currFriend);
-    currFriendScores = currFriend.scores;
-    for(var j = 0; j < 10; j++) {
-	hi = Math.max(parseInt(compFriendScores[j]), parseInt(currFriend[j]));
-	lo = Math.min(parseInt(compFriendScores[j]), parseInt(currFriend[j]));
-	scoreDiff = hi - lo;
-	scoreDiffArr.push(scoreDiff);
-	console.log("scores diff arr " + scoreDiffArr);
-    };
-    
-    for(var t in scoreDiffArr) {
-	total += (scoreDiffArr[t]);
-	console.log(scoreDiffArr);
-    };
-    console.log(total);
-    
-    if(total < best) {
-	best = total;
-	bff = compFriend[i];
-	console.log("My bff is: " + bff);
-    } else {
-	best = best;
-    }
-    // load bff into modal
-    $("#bestName").html(bff.name);
-    $("#bestPic").attr(src, bff.photo);
-    // show modal
-    $(".modal").modal({backdrop: true});
 };
-
 

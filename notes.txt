@@ -33,3 +33,44 @@
     app.post("api/friends", function(req, res) {
 	friends.push(req.body);
     });
+
+
+
+for(var i = 0; i < friendsArr.length; i++) {
+		compFriend = friendsArr[i];
+		compFriendScores = compFriend.scores;
+		// console.log(compFriendScores);
+		currFriendScores = currFriend.scores;
+		// console.log(currFriendScores);
+	    };
+	    for(var j = 0; j < 10; j++) {
+		scoreDiff = Math.abs((parseInt(compFriendScores[j])) - parseInt(currFriend[j]));
+	scoreDiffArr.push(parseInt(scoreDiff));
+		console.log("scores diff " + scoreDiff);
+	    };
+	    
+	    for(var t in scoreDiffArr) {
+		total += (scoreDiffArr[t]);
+	    };
+	    console.log(total);
+	    
+	    if(total < best) {
+		best = total;
+		bff = compFriend;
+		console.log("My bff is: " + bff);
+	    } else {
+		best = best;
+	    }
+	    // load bff into modal
+	    $("#bestName").html(bff.name);
+	    $("#bestPic").attr(src, bff.photo);
+	    // show modal
+	    $(".modal").modal({backdrop: true});
+	});
+
+
+
+dev tools shortcut to fill in survey
+document.querySelectorAll('select').forEach(function(el){
+el.value = '2';
+})
