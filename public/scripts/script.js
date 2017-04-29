@@ -66,10 +66,12 @@ function bestMatch() {
 	    
 	    
 	    // sort through new arr to find lowest number then load that info into modal
+	    console.log(diffArr);
 	    diffArr.sort(function(a, b) {
 		return a - b;
+		console.log("sorting");
+		console.log(diffArr);
 	    });
-	    console.log(diffArr);
 	    bff = diffArr[0];
 	    console.log(bff);
 	    console.log(bff.photo);
