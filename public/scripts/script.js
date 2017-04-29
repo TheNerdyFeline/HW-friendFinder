@@ -52,6 +52,7 @@ function bestMatch() {
 	    var diffArr = data.map(function(el){
 		var newObj = {};
 		newObj.name = el.name;
+		newObj.photo = el.photo;
 		var totalDiff = 0;
 		
 		el.scores.forEach(function(score, idx){
@@ -68,6 +69,8 @@ function bestMatch() {
 	    diffArr.sort();
 	    console.log(diffArr);
 	    bff = diffArr[0];
+	    console.log(bff);
+	    console.log(bff.photo);
 	    
 	    $("#bestName").html(bff.name);
 	    $("#bestPic").attr("src", bff.photo);
