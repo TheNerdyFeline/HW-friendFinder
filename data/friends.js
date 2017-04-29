@@ -5,7 +5,6 @@ var friendsArr = [
 	Scores: [4, 3, 3, 4, 2, 5, 3, 4, 5, 2]
     }
 ];
-console.log(friendsArr);
 module.exports = friendsArr;
 
 

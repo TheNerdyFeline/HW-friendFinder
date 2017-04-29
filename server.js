@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // route files, to send html to send data
 require("./routing/apiRoutes")(app);
-require("./routing/htmlRoutes.js")(app);
+require("./routing/htmlRoutes")(app);
 
 // server to run main site
 app.listen(PORT, function() {
