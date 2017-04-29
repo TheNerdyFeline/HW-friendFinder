@@ -20,6 +20,7 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "requirejs": "^2.3.3"
   }
 }

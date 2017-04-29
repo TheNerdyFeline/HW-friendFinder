@@ -1,10 +1,15 @@
-var newFriend, currFriend, compFriend, hi ,lo, scoreDiff, best, total, bff;
+var friendsArr, newFriend, currFriend, compFriend, hi ,lo, scoreDiff, total, bff;
 var scoreDiffArr = [];
-var friendsArr = require("../data/friends.js");
+var currentURL = window.location.origin;
+var best = 40;
+/*$.get("/api/friends", function(data) {
+    friendsArr = JSON.parse(data);
+ });*/
 
 // event listener for submit button
 $(".submit").on("click", function(event) {
     event.preventDefault();
+    bestMatch();
     getSurvey();
 });
 
@@ -17,7 +22,6 @@ function getSurvey() {
     
     $.post("/api/friends", newFriend, function() {
     });
-	 console.log(newFriend);
 	 // clear form
 	 $("#name").val("");
 	 $("#url").val("");
@@ -36,26 +40,35 @@ function getSurvey() {
 //function to compare to friends list
 
 function bestMatch() {
-    for(var i = 0; i < friendsArr.length; i++) {
-	compFriend = friendsArr[i].score;
-	currFriend = newFriend.score;
-	for(var j = 0; j < 10; j++) {
-	    hi = Math.max(compare[j], currFriend[j]);
-	    lo = Math.min(compare[j], currFriend[j]);
-	    scoreDiff = hi - lo;
-	    scoreDiffArr.push(scoreDiff);  
-	}
-	for(var t in scoreDiffArr) {
-	    total += scoreDiffArr[t];
-	}
-	if(total === 0 || total < best) {
-	    best = total;
-	    bff = compFriend[i];
-	}
-    }
-    // load bff into modal
-    $("#bestName") = bff.name;
-    $("#bestPic") = bff.photo;
-    // show modal
-    $(".modal").modal({backdrop: true});
+    $.ajax({ url: currentURL + "/api/friends", method: "GET" })
+	.done(function(data) {
+	    friendsArr = data;
+	    for(var i = 0; i < friendsArr.length; i++) {
+		compFriend = friendsArr[i].scores;
+		currFriend = newFriend.scores;
+		for(var j = 0; j < 10; j++) {
+	    hi = Math.max(compFriend[j], currFriend[j]);
+		    lo = Math.min(compFriend[j], currFriend[j]);
+		    scoreDiff = hi - lo;
+		    scoreDiffArr.push(scoreDiff);  
+		}
+		for(var t in scoreDiffArr) {
+		    total += scoreDiffArr[t];
+		    console.log(scoreDiffArr);
+		    console.log(total);
+		}
+		    
+		if(total < best) {
+		    best = total;
+		    bff = compFriend[i];
+		    console.log("My bff is: " + bff);
+		}
+	    }
+	    // load bff into modal
+	    $("#bestName").html(bff.name);
+	    $("#bestPic") = bff.photo;
+	    // show modal
+	    $(".modal").modal({backdrop: true});
+	});
 };
+
